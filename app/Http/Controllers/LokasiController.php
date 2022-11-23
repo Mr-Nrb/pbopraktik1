@@ -24,10 +24,7 @@ class LokasiController extends Controller
         ];
         return view('gudang.index', $data);
     }
-    public function formTambah()
-    {
-        return view('gudang.tambahform');
-    }
+    
     public function simpan(Request $request)
     {
         try {

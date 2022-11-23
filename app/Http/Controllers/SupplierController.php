@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\SupplierModel;
 use Illuminate\Http\Request;
+use Exception;
 
 class SupplierController extends Controller
 {
@@ -55,6 +56,7 @@ class SupplierController extends Controller
     {
 
         $edit = $this->SupplierModel->find($id);
+        return view('supplier.edit', $edit);
     }
     public function editsimpan(Request $request)
     {

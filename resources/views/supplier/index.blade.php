@@ -61,10 +61,9 @@
         </td>
         <td class="">
             <div class="flex flex-wrap m-auto h-full justify-center">
-            <a href="supplier/edit/{{$sup->id_supplier}}"><label for="my-modal-4" class="btn bg-blue-400 shadow-md rounded-md" >Tambah</label></a>
+            <a href="/supplier/edit/{{$sup->id_supplier}}"><button type="submit" class="btn btn-success mr-6">EDIT</button></a>
             <a href="supplier/hapus/{{$sup->id_supplier}}" 
-            onclick="return confirm('Anda yakin ingin hapus data ini ?')"><button class="bg-red-600 m-1 hover:bg-yellow-400 text-white rounded-lg font-bold text-sm p-2
-            ">HAPUS</button></a>
+            onclick="return confirm('Anda yakin ingin hapus data ini ?')"><button class="btn btn-error">HAPUS</button></a>
             
             </div>
         </td>
@@ -106,5 +105,7 @@
     </form>
   </div>
 </div>
+
+
 </body>
 </html>

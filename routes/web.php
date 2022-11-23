@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/sup', function () {
-    return view('supplier.index');
+Route::get('/supplier/ed', function () {
+    return view('supplier.edit');
 });
 Route::controller(SupplierController::class)
     ->middleware('auth')
@@ -30,8 +30,6 @@ Route::controller(SupplierController::class)
 
 Route::get('/supplier',[SupplierController::class,'index']);
 Route::post('/simpan',[SupplierController::class,'simpan']);
-Route::post('/supplier/process',[SupplierController::class,'process']);
-// Route::get('/supplier/detil/{id}',[SupplierController::class,'detil/{$id}']);
 Route::get('/supplier/hapus/{id}',[SupplierController::class,'hapus']);
 Route::get('/supplier/edit/{id}',[SupplierController::class,'edit']);
 Route::post('/supplier/edit/editsimpan',[SupplierController::class,'editsimpan']);
