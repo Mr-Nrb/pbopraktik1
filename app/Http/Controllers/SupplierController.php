@@ -50,6 +50,31 @@ class SupplierController extends Controller
         }
     }
 
+    //UPDATE 
+    public function edit($id = null)
+    {
+
+        $edit = $this->SupplierModel->find($id);
+    }
+    public function editsimpan(Request $request)
+    {
+        try {
+            $data = [
+                'nama_supplier'   => $request->input('nama_supplier'),
+                'alamat_supplier' => $request->input('alamat_supplier'),
+                'telp_supplier'    => $request->input('telp_supplier')
+            ];
+            $upd = $this->SupplierModel
+                        ->where('id_supplier', $request->input('id_supplier'))
+                        ->update($data);
+            if($upd){
+                return redirect('supplier');
+            }
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
     //HAPUS
     public function hapus($id=null){
         try{

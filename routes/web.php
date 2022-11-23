@@ -4,6 +4,7 @@ use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\Supplier;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\AuthController    ;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,12 +24,19 @@ Route::get('/', function () {
 Route::get('/sup', function () {
     return view('supplier.index');
 });
+Route::controller(SupplierController::class)
+    ->middleware('auth')
+    ->group(function () {
 
 Route::get('/supplier',[SupplierController::class,'index']);
 Route::post('/simpan',[SupplierController::class,'simpan']);
 Route::post('/supplier/process',[SupplierController::class,'process']);
-Route::get('/supplier/detil/{id}',[SupplierController::class,'detil/{$id}']);
+// Route::get('/supplier/detil/{id}',[SupplierController::class,'detil/{$id}']);
 Route::get('/supplier/hapus/{id}',[SupplierController::class,'hapus']);
+Route::get('/supplier/edit/{id}',[SupplierController::class,'edit']);
+Route::post('/supplier/edit/editsimpan',[SupplierController::class,'editsimpan']);
+
+});
 //Get, Post, Put, dll 
 //Lokasi Routing
 // Route::get('/gudang',[LokasiController::class,'index']);
@@ -39,3 +47,14 @@ Route::get('/supplier/hapus/{id}',[SupplierController::class,'hapus']);
 // Route::get('/gudang/hapus/{id}',[LokasiController::class,'hapus']);
 //Route login
 Route::post('auth',[logincontroller::class,'authenticate']);
+
+
+//login 
+// Routes Auth 
+Route::controller(AuthController::class)
+    ->group(function () {
+        Route::get('login', 'formLogin')->name('login');
+        Route::post('auth', 'masuk');
+        Route::get('logout', 'logout');
+    });
+

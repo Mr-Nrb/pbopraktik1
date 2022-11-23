@@ -15,7 +15,7 @@ class logincontroller extends Controller
         ]);
         if(Auth::attempt($data)){
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect()->intended('supplier.index');
         }
         //tampilkan pesan error jika gagal login
         return back()->withErrors([

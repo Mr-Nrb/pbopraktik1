@@ -61,7 +61,7 @@
         </td>
         <td class="">
             <div class="flex flex-wrap m-auto h-full justify-center">
-            <a href="gudang/edit/{{$sup->id_supplier}}"><button class="bg-stone-700 text-white rounded-lg hover:bg-cyan-700 font-bold text-sm m-1 p-2">EDIT</button></a>
+            <a href="supplier/edit/{{$sup->id_supplier}}"><label for="my-modal-4" class="btn bg-blue-400 shadow-md rounded-md" >Tambah</label></a>
             <a href="supplier/hapus/{{$sup->id_supplier}}" 
             onclick="return confirm('Anda yakin ingin hapus data ini ?')"><button class="bg-red-600 m-1 hover:bg-yellow-400 text-white rounded-lg font-bold text-sm p-2
             ">HAPUS</button></a>
@@ -91,12 +91,6 @@
             <input type="text" name="alamat_supplier" id="alamat_supplier" class="w-full rounded-md shadow-inner border border-gray-400" required>
         </div>
         <div class="w-full flex flex-wrap text-[#06283D]">
-            
-            <!-- --------------------------------------------------------------------- -->
-           
-<!-- ----------------------------------------------------------------------------------------------- -->
-           
-<!-- ------------------------------------------------------------------------------------------------ -->
             <div class="flex flex-wrap w-full mt-2">
                 <label for="telp_supplier">Kontak</label>
                 <br>
@@ -112,7 +106,5 @@
     </form>
   </div>
 </div>
-
-
 </body>
 </html>
